@@ -12,7 +12,7 @@ pipeline {
             steps {
                 rtUpload (
                     // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
-                    serverId: SERVER_ID,
+                    serverId: artifactory-server,
                     spec: """{
                             "files": [
                                     {
@@ -28,7 +28,7 @@ pipeline {
         stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: SERVER_ID
+                    serverId: artifactory-server
                 )
             }
         }
